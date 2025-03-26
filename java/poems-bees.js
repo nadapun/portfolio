@@ -10,8 +10,8 @@ var angleDistortion = 0;
 // Drawing variables
 var canvas;
 var context;
-var mouse = {x: 0, y: 38, down: false}
-var touch = {x: 0, y: 38, down: false}
+var mouse = {x: -12, y: 20, down: false}
+var touch = {x: -12, y: 20, down: false}
 
 let letters = prompt('Copy and paste one of your poems here.');
 
@@ -57,7 +57,7 @@ function draw() {
       context.font = fontSize + "px Georgia";
     
       context.save();
-      context.translate( position.x, position.y -38);
+      context.translate( position.x +12, position.y -20);
       context.rotate( angle );
       context.fillText(letter,0,0);
       context.restore();
