@@ -10,8 +10,8 @@ var angleDistortion = 0;
 // Drawing variables
 var canvas;
 var context;
-var mouse = {x: -12, y: 20, down: false}
-var touch = {x: 0, y: -20, down: false}
+var mouse = {x: 0, y: 0, down: false}
+var touch = {x: 0, y: 0, down: false}
 
 let letters = prompt('Copy and paste one of your poems here.');
 
@@ -21,6 +21,8 @@ function init() {
   context = canvas.getContext( '2d' );
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+
+  drawTitle();
   
   canvas.addEventListener('mousemove', mouseMove, false);
   canvas.addEventListener('mousedown', mouseDown, false);
@@ -36,6 +38,15 @@ function init() {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
   }
+}
+
+function drawTitle() {
+  context.save();
+  context.font = '48px Josefin Slab, serif';
+  context.fillStyle = '#811f3c';
+  context.textAlign = 'center';
+  context.fillText('Spittoon Bees', canvas.width / 2, 60);
+  context.restore();
 }
 
 function mouseMove ( event ){
@@ -65,7 +76,7 @@ function draw() {
       context.font = fontSize + "px Georgia";
     
       context.save();
-      context.translate( position.x +12, position.y -20);
+      context.translate( position.x + 12, position.y + 25);
       context.rotate( angle );
       context.fillText(letter,0,0);
       context.restore();
