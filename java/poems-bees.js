@@ -26,6 +26,10 @@ function init() {
   canvas.addEventListener('mouseup',   mouseUp,   false);
   canvas.addEventListener('mouseout',  mouseUp,  false);  
   canvas.addEventListener('dblclick', doubleClick, false);
+
+  canvas.addEventListener('touchstart', handleTouchStart, false);
+  canvas.addEventListener('touchmove', handleTouchMove, false);
+  canvas.addEventListener('touchend', handleTouchEnd, false);
   
   window.onresize = function(event) {
     canvas.width = window.innerWidth;
@@ -68,6 +72,27 @@ function draw() {
 
       }
   }     
+}
+
+function handleTouchStart(e) {
+  mouse.down = true;
+  const touch = e.touches[0];
+  position.x = touch.pageX;
+  position.y = touch.pageY;
+  e.preventDefault(); // Prevent scrolling
+}
+
+function handleTouchMove(e) {
+  if (!mouse.down) return;
+  const touch = e.touches[0];
+  mouse.x = touch.pageX;
+  mouse.y = touch.pageY;
+  draw();
+  e.preventDefault(); // Prevent scrolling
+}
+
+function handleTouchEnd(e) {
+  mouse.down = false;
 }
 
 function distance( pt, pt2 ){
