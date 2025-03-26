@@ -72,3 +72,19 @@ span{
   z-index: 2;
 }
 
+#bee-follow {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+
+@media (max-width: 768px) {
+  #bee-follow {
+    width: 100px;
+    height: 100px;
+  }
+}
+
