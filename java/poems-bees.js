@@ -11,7 +11,7 @@ var angleDistortion = 0;
 var canvas;
 var context;
 var mouse = {x: -12, y: 20, down: false}
-var touch = {x: -12, y: 20, down: false}
+var touch = {x: 0, y: -20, down: false}
 
 let letters = prompt('Copy and paste one of your poems here.');
 
@@ -43,6 +43,14 @@ function mouseMove ( event ){
   mouse.y = event.pageY;
   draw();
 }
+
+function updateBeePosition(x, y) {
+  const bee = document.getElementById('bee-follow');
+  bee.style.left = (x - 15) + 'px'; // Center bee
+  bee.style.top = (y - 15) + 'px';
+  bee.style.display = 'block';
+}
+
 
 function draw() {
  if ( mouse.down ) {
@@ -80,6 +88,7 @@ function handleTouchStart(e) {
   const touch = e.touches[0];
   position.x = touch.pageX;
   position.y = touch.pageY;
+  document.getElementById('info').style.display = 'none';
   e.preventDefault(); // Prevent scrolling
 }
 
@@ -88,6 +97,7 @@ function handleTouchMove(e) {
   const touch = e.touches[0];
   mouse.x = touch.pageX;
   mouse.y = touch.pageY;
+  updateBeePosition(mouse.x, mouse.y);
   draw();
   e.preventDefault(); // Prevent scrolling
 }
