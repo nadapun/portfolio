@@ -60,11 +60,11 @@ a {
 span{
   font-family: 'Georgia', cursive;
   font-size: 50px;
-  position: fixed; 
+  position: center; 
   top: 50%;
   left: 50%;
   color: #811f3c;
   margin-top: -40px;
-  margin-left: -250px;
+  margin-left: -150px;
 }
 

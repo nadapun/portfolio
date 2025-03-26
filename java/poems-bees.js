@@ -11,6 +11,7 @@ var angleDistortion = 0;
 var canvas;
 var context;
 var mouse = {x: 0, y: 38, down: false}
+var touch = {x: 0, y: 38, down: false}
 
 let letters = prompt('Copy and paste one of your poems here.');
 
