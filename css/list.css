@@ -1,0 +1,37 @@
+html, body {
+    background: url('../img/andyinanet.png') #eeeeee left bottom no-repeat;
+    margin: 0px;
+    margin-bottom: 20px;
+    &:hover; 
+    font-family: 'Josefin Slab', 'Comfortaa', sans-serif;
+    font-size: 1.2em;
+  }
+   
+  a:hover {
+    color: #388E8E
+  }
+     
+  a {
+    color:#3a3a3a;
+    text-decoration: none;
+    font-weight: bold
+  }
+  
+  #navigation {
+    width: 400px;
+    text-align: left;
+    padding-top: 50px;  
+    margin-bottom: -10px;
+    margin-left: auto;
+    margin-right: auto
+  }  
+   
+  #info{
+    font-family: 'Georgia', cursive;
+    font-size: 40px;
+    color: #3a3a3a;
+    padding-top: 20px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto
+  }

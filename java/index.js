@@ -11,18 +11,25 @@ var letters = "Hi, my name is Andy Springer and this is my .net!  I will be tryi
 var canvas;
 var context;
 var mouse = {x: 0, y: 38, down: false}
+var touch = {x: 0, y: 0, down: false}
 
 function init() {
   canvas = document.getElementById( 'canvas' );
   context = canvas.getContext( '2d' );
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+
+  drawTitle();
   
   canvas.addEventListener('mousemove', mouseMove, false);
   canvas.addEventListener('mousedown', mouseDown, false);
   canvas.addEventListener('mouseup',   mouseUp,   false);
   canvas.addEventListener('mouseout',  mouseUp,  false);  
   canvas.addEventListener('dblclick', doubleClick, false);
+
+  canvas.addEventListener('touchstart', handleTouchStart, false);
+  canvas.addEventListener('touchmove', handleTouchMove, false);
+  canvas.addEventListener('touchend', handleTouchEnd, false);
   
   window.onresize = function(event) {
     canvas.width = window.innerWidth;
@@ -30,10 +37,25 @@ function init() {
   }
 }
 
+function drawTitle() {
+  context.save();
+  context.font = '48px Josefin Slab, serif';
+  context.fillStyle = '#811f3c';
+  context.textAlign = 'center';
+  context.restore();
+}
+
 function mouseMove ( event ){
   mouse.x = event.pageX;
   mouse.y = event.pageY;
   draw();
+}
+
+function updateBeePosition(x, y) {
+  const bee = document.getElementById('bee-follow');
+  bee.style.left = (x - 15) + 'px'; // Center bee
+  bee.style.top = (y - 15) + 'px';
+  bee.style.display = 'block';
 }
 
 function draw() {
@@ -65,6 +87,29 @@ function draw() {
 
       }
   }     
+}
+
+function handleTouchStart(e) {
+  mouse.down = true;
+  const touch = e.touches[0];
+  position.x = touch.pageX;
+  position.y = touch.pageY;
+  document.getElementById('info').style.display = 'none';
+  e.preventDefault(); // Prevent scrolling
+}
+
+function handleTouchMove(e) {
+  if (!mouse.down) return;
+  const touch = e.touches[0];
+  mouse.x = touch.pageX;
+  mouse.y = touch.pageY;
+  updateBeePosition(mouse.x, mouse.y);
+  draw();
+  e.preventDefault(); // Prevent scrolling
+}
+
+function handleTouchEnd(e) {
+  mouse.down = false;
 }
 
 function distance( pt, pt2 ){
