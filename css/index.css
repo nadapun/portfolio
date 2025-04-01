@@ -3,14 +3,14 @@ html, body {
   height: 100%;
   margin: 0px;
   overflow: hidden;
-  &:hover; 
   font-family: 'Josefin Slab', 'Comfortaa', sans-serif;
   font-size: 1.2em;
   background-size: contain;
   }
 
 canvas {
- cursor: crosshair;
+ cursor: none; 
+ cursor: url('../img/bluesplocurs.png');
  position: relative;
  width: 100%;
  height: 100%;
@@ -36,14 +36,16 @@ a {
   height: 5%;
 }  
  
-span{
+span {
   font-family: 'Georgia', cursive;
-  font-size: 50px;
+  font-size: 5vw; /* scales with screen width */
   position: fixed; 
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%);
   color: #3a3a3a;
-  margin-top: -40px;
-  margin-left: -250px;
+  text-align: center;
+  max-width: 90vw;
+  white-space: nowrap;
 }
 

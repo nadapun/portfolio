@@ -5,7 +5,7 @@ var position = {x: 0, y: window.innerHeight/2};
 var counter = 0;
 var minFontSize = 3;
 var angleDistortion = 0;
-var letters = "Hi, my name is Andy Springer and this is my .net!  I will be trying to add to the site as time goes on.  If you wish you can continue to other parts of the site, keep playing here, or change the text to T.S. Eliot above. ";
+var letters = "Hi, my name is Andy Springer and this is my .io!  I will be trying to add to the site as time goes on.  If you wish you can continue to other parts of the site, keep playing here, or do something productive you lazy bum. ";
 
 // Drawing variables
 var canvas;
@@ -48,6 +48,7 @@ function drawTitle() {
 function mouseMove ( event ){
   mouse.x = event.pageX;
   mouse.y = event.pageY;
+  updateBeePosition(mouse.x, mouse.y); 
   draw();
 }
 
@@ -69,6 +70,7 @@ function draw() {
       var angle = Math.atan2(mouse.y-position.y, mouse.x-position.x);
       
       context.font = fontSize + "px Georgia";
+      context.fillStyle = '#007686';
     
       context.save();
       context.translate( position.x, position.y -38);
