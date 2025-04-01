@@ -13,6 +13,15 @@ html, body {
     margin: 20px;
     float: bottom
   }
+
+  a:hover {
+    color:#3a3a3a;
+  }
+     
+  a {
+    color: #388E8E;
+    text-decoration: none;
+  }
   
   #center{
     width: 100%;
