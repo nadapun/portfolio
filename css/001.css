@@ -4,7 +4,6 @@ html, body {
     background: #eeeeee center no-repeat;
     margin: 0px;
     overflow: hidden;
-    &:hover; 
     font-family: 'Josefin Slab', 'Comfortaa', sans-serif;
     font-size: 1.1em;
     }
@@ -14,17 +13,26 @@ html, body {
     float: bottom
   }
 
-  a:hover {
-    color:#3a3a3a;
-  }
-
-  a:visited {
-    background-color: #007686; /* Visited link */
-    }
-     
-  a {
+  a:link {
     color: #388E8E;
     text-decoration: none;
+    cursor: url('../img/bluesplocurs.png') 16 16, auto;
+  }
+  
+  a:visited {
+    background-color: #007686; /* Or just color, if preferred */
+    color: #388E8E; /* Optional */
+    cursor: url('../img/bluesplocurs.png') 16 16, auto;
+  }
+  
+  a:hover {
+    color: #3a3a3a;
+    cursor: url('../img/bluesplocurs.png') 16 16, auto;
+  }
+  
+  a:active {
+    color: #555;
+    cursor: url('../img/bluesplocurs.png') 16 16, auto;
   }
   
   #center{

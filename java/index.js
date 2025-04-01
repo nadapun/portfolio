@@ -156,3 +156,17 @@ function textWidth( string, size ) {
  };
 
 init();
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const bee = document.getElementById('bee-follow');
+  const nav = document.getElementById('navigation');
+
+  nav.addEventListener('pointerenter', () => {
+    bee.style.display = 'none';
+  });
+
+  nav.addEventListener('pointerleave', () => {
+    bee.style.display = 'block';
+  });
+});
