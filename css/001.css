@@ -17,6 +17,10 @@ html, body {
   a:hover {
     color:#3a3a3a;
   }
+
+  a:visited {
+    background-color: #007686; /* Visited link */
+    }
      
   a {
     color: #388E8E;
