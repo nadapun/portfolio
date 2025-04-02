@@ -10,7 +10,8 @@ html, body {
   
   #navigation{
     margin: 20px;
-    float: bottom
+    float: bottom;
+    cursor: url('../img/bluesplocurs.png') 16 16, auto;
   }
 
   a:link {
