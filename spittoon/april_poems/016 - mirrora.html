@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mirror Poem — Word Cascade</title>
+  <link rel="stylesheet" type="text/css" href="../../css/001.css">
+  <link rel="shortcut icon" type="image/png" href="../../img/icon.ico">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #eeeeee;
+      font-family: 'Josefin Slab', 'Comfortaa', sans-serif;
+      overflow-x: hidden;
+    }
+
+    #poem {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding-top: 3em;
+    }
+
+    .half {
+      width: 45%;
+      padding: 2em;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .line {
+      margin: 0.75em 0;
+    }
+
+    .divider {
+      width: 2px;
+      background-color: #aaa;
+      min-height: 400px;
+      margin-top: 3em;
+    }
+
+    .word {
+      display: inline-block;
+      margin-right: 0.5em;
+      opacity: 1;
+      transform: translateX(0);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .clear-word {
+      display: inline-block;
+      margin-right: 0.5em;
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .move-left {
+      transform: translateX(30px);
+      opacity: 0;
+    }
+
+    .fade-in {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<div id="center">
+
+  <div id="navigation">
+    <a href="015.html"><img src=../../img/left.png></a> &nbsp;&nbsp;
+    <a href="../../index.html"><img src='../../img/home.png'></a> &nbsp;&nbsp;
+    <a href="../list.html"><img src='../../img/list.png'></a> &nbsp;&nbsp;
+    <a href="017.html"><img src='../../img/right.png'></a>
+  </div>
+
+  <div id="poem">
+    <div class="half" id="confused"></div>
+    <div class="divider"></div>
+    <div class="half" id="clear"></div>
+  </div>
+
+</div>
+
+<script>
+const mirrorMap = {
+  a: 'ɒ', b: 'd', c: 'ɔ', d: 'b', e: 'ǝ', f: 'ɟ', g: 'ƃ',
+  h: 'ɥ', i: 'ᴉ', j: 'ɾ', k: 'ʞ', l: 'ʃ', m: 'ɯ', n: 'u',
+  o: 'o', p: 'q', q: 'p', r: 'ɹ', s: 'Ꞩ', t: 'ʇ', u: 'n',
+  v: 'ʌ', w: 'ʍ', x: 'x', y: 'ʎ', z: 'z',
+  A: '∀', B: '𐐒', C: 'Ↄ', D: '◖', E: 'Ǝ', F: 'Ⅎ', G: '⅁',
+  H: 'H', I: 'I', J: 'ſ', K: '⋊', L: '⅃', M: 'W', N: 'И',
+  O: 'O', P: 'Ԁ', Q: 'Ό', R: 'Я', S: 'Ƨ', T: '⊥', U: '∩',
+  V: 'Λ', W: 'M', X: 'X', Y: '⅄', Z: 'Z',
+  '’': '’', "'": "'", ' ': ' ', '.': '.', ',': ',', '-': '-', '–': '–'
+};
+
+const poemLines = [
+  "Open the gate",
+  "Let the sky spill in",
+  "Hands like thresholds",
+  "Light splits the ground",
+  "Everything is waiting"
+];
+
+function mirrorWord(word) {
+  return word.split('').reverse().map(c => mirrorMap[c] || c).join('');
+}
+
+function wrapWords(line, className) {
+  return line.split(' ').map((word, i) => {
+    const delay = i * 100;
+    return `<span class="${className}" style="transition-delay: ${delay}ms">${word}</span>`;
+  }).join(' ');
+}
+
+function renderPoems() {
+  const confusedDiv = document.getElementById("confused");
+  const clearDiv = document.getElementById("clear");
+
+  confusedDiv.innerHTML = poemLines.map(line => {
+    const mirroredWords = line.split(' ').map(mirrorWord).reverse().join(' ');
+    return `<p class="line">${wrapWords(mirroredWords, 'word')}</p>`;
+  }).join('');
+
+  clearDiv.innerHTML = poemLines.map(line => {
+    return `<p class="line">${wrapWords(line, 'clear-word')}</p>`;
+  }).join('');
+}
+
+let showingClear = false;
+
+function togglePoem() {
+  const mirroredWords = document.querySelectorAll('.word');
+  const clearWords = document.querySelectorAll('.clear-word');
+
+  if (!showingClear) {
+    mirroredWords.forEach((el, i) => {
+      setTimeout(() => el.classList.add('move-left'), i * 80);
+    });
+
+    clearWords.forEach((el, i) => {
+      setTimeout(() => el.classList.add('fade-in'), i * 80);
+    });
+  } else {
+    mirroredWords.forEach((el, i) => {
+      setTimeout(() => el.classList.remove('move-left'), i * 80);
+    });
+
+    clearWords.forEach((el, i) => {
+      setTimeout(() => el.classList.remove('fade-in'), i * 80);
+    });
+  }
+
+  showingClear = !showingClear;
+}
+
+renderPoems();
+document.getElementById("confused").addEventListener("click", togglePoem);
+document.getElementById("clear").addEventListener("click", togglePoem);
+</script>
+
+</body>
+</html>
