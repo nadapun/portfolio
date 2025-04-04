@@ -1,0 +1,172 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    background: #eeeeee center no-repeat;
+    margin: 0;
+    overflow-x: hidden; /* only hide horizontal overflow */
+    overflow-y: auto;   /* allow vertical scroll */
+    font-family: 'Josefin Slab', 'Comfortaa', sans-serif;
+    font-size: 1.1em;
+  }
+  
+  #navigation {
+    margin: 20px;
+    cursor: url('../img/bluesplocurs.png') 16 16, auto;
+  }
+  
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    text-decoration: none;
+    cursor: url('../img/bluesplocurs.png') 16 16, auto;
+  }
+  
+  a:link {
+    color: #388E8E;
+  }
+  
+  a:visited {
+    background-color: #007686;
+    color: #388E8E;
+  }
+  
+  a:hover {
+    color: #3a3a3a;
+  }
+  
+  a:active {
+    color: #555;
+  }
+  
+  #center {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+  }
+  
+  #poem {
+    display: flex; /* REQUIRED to make .half + .divider line up side by side */
+    justify-content: center;
+    align-items: flex-start;
+    padding: 2em 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2em;
+    overflow-y: auto;
+  }
+  
+ 
+  #input-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2em auto;
+    text-align: center;
+    gap: 1em;
+  }
+  
+  #poem-input {
+    width: 90%;
+    max-width: 500px;
+    height: auto; /* not fixed height */
+    min-height: 3em;
+    font-size: 1.1em;
+    padding: 0.75em;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    resize: vertical;
+    box-shadow: 0px 1px 4px rgba(0,0,0,0.1);
+    font-family: 'Josefin Slab', 'Comfortaa', sans-serif;
+  }
+  
+  #input-area button {
+    padding: 0.6em 1.5em;
+    font-size: 1em;
+    background-color: #388E8E;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: 'Josefin Slab', 'Comfortaa', sans-serif;
+  }
+  
+  #input-area button:hover {
+    background-color: #2e6f6f;
+  }
+  
+  #mirror-title {
+    margin-top: 1.5em;
+    font-weight: normal;
+    font-size: 1.5em;
+    color: #444;
+  }
+  
+  .half {
+    width: 45%;
+    padding: 1em;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #confused {
+    align-items: flex-end;
+  }
+  
+  #clear {
+    align-items: flex-start;
+  }
+
+  #confused .line {
+    text-align: right;
+    direction: ltr;
+    unicode-bidi: isolate; /* ensures bidirectional control is clean */
+  }
+  
+  
+  .divider {
+    width: 2px;
+    background-color: #aaa;
+    align-self: stretch;
+    min-height: 100px; /* Fallback for short poems */
+  }
+  
+  
+  .line {
+    margin: 0.75em 0;
+    text-align: left;
+  }
+  
+  .word, .clear-word {
+    display: inline-block;
+    margin-right: 0.5em;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+  }
+  
+  .word {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .clear-word {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  
+  .move-left {
+    transform: translateX(30px);
+    opacity: 0;
+  }
+  
+  .fade-in {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
