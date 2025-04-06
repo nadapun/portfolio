@@ -13,9 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     let poemLines = [
-        { text: "seeds are bees and bees are seeds", splitType: "none" },
+        { text: "seeds are bees", splitType: "none" },
+        { text: "and", splitType: "none" },
+        { text: "bees are seeds", splitType: "none" },
         { text: "bees buzzing and seeds growing", splitType: "none" },
-        { text: "and all the sudden where are the bees?", splitType: "none" },
+        { text: "and now where are the bees?", splitType: "none" },
         { text: "bees?!", splitType: "none" },
         { text: "bees bees bees bees", splitType: "none" },
         { text: "bees bees bees bees", splitType: "none" },
