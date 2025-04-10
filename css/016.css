@@ -1,0 +1,58 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+
+  background:
+    url('../img/bee-background-flower.png') no-repeat bottom right,
+    url('../img/bee-background.png') no-repeat bottom center,
+    #eeeeee;
+
+  background-size:
+    20vw auto,
+    100% 85vh,
+    cover;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  font-family: 'Josefin Slab', 'Comfortaa', sans-serif;
+  font-size: 1.2em;
+  color: #3a3a3a;
+
+  cursor: url('../img/bee_icon.png'), auto;
+}
+
+/* This centers the nav block itself */
+#center {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* The nav itself */
+#navigation {
+  display: inline-block;
+  pointer-events: auto;
+  cursor: url('../img/bluesplocurs.png') 16 16, auto;
+}
+
+/* Make canvas full screen, behind nav, and non-blocking */
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: auto; /* ✅ Allow drawing */
+}
+
+/* Link styling */
+a:link, a:visited, a:hover, a:active {
+  color: #388E8E;
+  text-decoration: none;
+  cursor: url('../img/bluesplocurs.png') 16 16, auto;
+}
