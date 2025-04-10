@@ -68,6 +68,7 @@ function updateBeePosition(x, y) {
   }
 }
 
+
 function draw() {
   if (!mouse.down) return;
 
@@ -124,7 +125,7 @@ function handleTouchMove(e) {
 function handleTouchEnd(e) {
   mouse.down = false;
   const bee = document.getElementById('bee-follow');
-  if (bee) bee.style.display = 'block'; // ✅ Show bee again after releasing touch
+  if (bee) bee.style.display = 'block'; // ✅ Keeps it visible after lifting finger
 }
 
 function distance(pt, pt2) {

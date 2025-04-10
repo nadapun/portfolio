@@ -52,6 +52,15 @@ canvas {
   pointer-events: auto; /* ✅ Allow drawing */
 }
 
+#bee-follow {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+  z-index: 20;
+  display: none;
+}
+
 /* Link styling */
 a:link, a:visited, a:hover, a:active {
   color: #388E8E;
