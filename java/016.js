@@ -101,7 +101,9 @@ function draw() {
     context.font = fontSize + "px Georgia";
 
     context.save();
-    context.translate(position.x + 12, position.y + 25);
+    const yOffset = touch.down ? 10 : 25;
+    const xOffset = touch.down ? 5 : 12;
+    context.translate(position.x + xOffset, position.y + yOffset);
     context.rotate(angle);
     context.fillText(letter, 0, 0);
     context.restore();
@@ -144,7 +146,7 @@ function handleTouchEnd(e) {
   const bee = document.getElementById('bee-follow');
   if (bee && mouse.x && mouse.y) {
     bee.style.left = (mouse.x - 15) + 'px';
-    bee.style.top = (mouse.y - 15) + 'px';
+    bee.style.top = (mouse.y - 1) + 'px';
     bee.style.display = 'block';
   }
 }
