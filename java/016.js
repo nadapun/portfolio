@@ -107,6 +107,9 @@ function handleTouchStart(e) {
   const touch = e.touches[0];
   position.x = touch.pageX;
   position.y = touch.pageY;
+  mouse.x = touch.pageX;  // ✅ Also update mouse.x/y so it's in sync
+  mouse.y = touch.pageY;
+  updateBeePosition(mouse.x, mouse.y); // ✅ Show the bee immediately
   const info = document.getElementById('info');
   if (info) info.style.display = 'none';
   e.preventDefault();
