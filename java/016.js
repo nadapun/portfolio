@@ -33,9 +33,14 @@ function init() {
   canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
 
   window.onresize = function () {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    canvas.style.width = window.innerWidth + 'px';
+    canvas.style.height = window.innerHeight + 'px';
+    context.setTransform(1, 0, 0, 1, 0, 0); // Reset before scaling again
+    context.scale(dpr, dpr);
+  };
 }
 
 function drawTitle() {
@@ -118,6 +123,8 @@ function handleTouchMove(e) {
 
 function handleTouchEnd(e) {
   mouse.down = false;
+  const bee = document.getElementById('bee-follow');
+  if (bee) bee.style.display = 'block'; // ✅ Show bee again after releasing touch
 }
 
 function distance(pt, pt2) {
