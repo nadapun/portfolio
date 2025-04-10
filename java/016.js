@@ -146,7 +146,7 @@ function handleTouchEnd(e) {
   const bee = document.getElementById('bee-follow');
   if (bee && mouse.x && mouse.y) {
     bee.style.left = (mouse.x - 15) + 'px';
-    bee.style.top = (mouse.y - 1) + 'px';
+    bee.style.top = (mouse.y + 15) + 'px';
     bee.style.display = 'block';
   }
 }
