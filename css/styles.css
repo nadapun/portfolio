@@ -28,6 +28,7 @@ body {
   height: 100%;
   padding-top: 5px;
   padding-right: 5px;
+  z-index: 10; /* Ensure thumbnails have a higher z-index */
 }
 
 .thumbnails img {
@@ -43,21 +44,19 @@ body {
 }
 
 #navigation {
+  position: absolute; /* Position it absolutely on the page */
+  top: 10px;  /* 10px from the top */
+  left: 10px; /* 10px from the left */
+  z-index: 20; /* Ensure navigation is on top */
   text-align: center;
-  padding-top: 10px;
-  padding-bottom: 10px; 
-  padding-left: 10px;
-  height: 5%;
-  position: absolute;
-  align-items: center;
-}  
+}
 
 a:hover {
-  color: #388E8E
+  color: #388E8E;
 }
-   
+
 a {
-  color:#3a3a3a;
+  color: #3a3a3a;
   text-decoration: none;
   font-weight: bold;
 }
