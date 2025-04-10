@@ -78,7 +78,7 @@ function updateBeePosition(x, y) {
   const bee = document.getElementById('bee-follow');
   if (bee) {
     bee.style.left = (x - 15) + 'px';
-    bee.style.top = (y - 15) + 'px';
+    bee.style.top = (y - 1) + 'px';
     bee.style.display = 'block';
   }
 }
