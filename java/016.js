@@ -20,6 +20,21 @@ function init() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
+  // ✅ Create bee-follow image if missing
+  if (!document.getElementById('bee-follow')) {
+    const bee = document.createElement('img');
+    bee.id = 'bee-follow';
+    bee.src = '../img/bee_icon.png'; // ✅ adjust path if needed
+    bee.alt = 'Bee';
+    bee.style.position = 'absolute';
+    bee.style.width = '30px';
+    bee.style.height = '30px';
+    bee.style.pointerEvents = 'none';
+    bee.style.zIndex = '20';
+    bee.style.display = 'none';
+    document.body.appendChild(bee);
+  }
+
   drawTitle();
 
   canvas.addEventListener('mousemove', mouseMove, false);
@@ -38,7 +53,7 @@ function init() {
     canvas.height = window.innerHeight * dpr;
     canvas.style.width = window.innerWidth + 'px';
     canvas.style.height = window.innerHeight + 'px';
-    context.setTransform(1, 0, 0, 1, 0, 0); // Reset before scaling again
+    context.setTransform(1, 0, 0, 1, 0, 0);
     context.scale(dpr, dpr);
   };
 }
@@ -67,7 +82,6 @@ function updateBeePosition(x, y) {
     bee.style.display = 'block';
   }
 }
-
 
 function draw() {
   if (!mouse.down) return;
@@ -107,9 +121,9 @@ function handleTouchStart(e) {
   const touch = e.touches[0];
   position.x = touch.pageX;
   position.y = touch.pageY;
-  mouse.x = touch.pageX;  // ✅ Also update mouse.x/y so it's in sync
+  mouse.x = touch.pageX;
   mouse.y = touch.pageY;
-  updateBeePosition(mouse.x, mouse.y); // ✅ Show the bee immediately
+  updateBeePosition(mouse.x, mouse.y);
   const info = document.getElementById('info');
   if (info) info.style.display = 'none';
   e.preventDefault();
@@ -131,7 +145,7 @@ function handleTouchEnd(e) {
   if (bee && mouse.x && mouse.y) {
     bee.style.left = (mouse.x - 15) + 'px';
     bee.style.top = (mouse.y - 15) + 'px';
-    bee.style.display = 'block'; // ✅ show again, at the current finger position
+    bee.style.display = 'block';
   }
 }
 
