@@ -101,7 +101,7 @@ function draw() {
     context.font = fontSize + "px Georgia";
 
     context.save();
-    const yOffset = touch.down ? 10 : 25;
+    const yOffset = touch.down ? 10 : -25;
     const xOffset = touch.down ? 5 : 12;
     context.translate(position.x + xOffset, position.y + yOffset);
     context.rotate(angle);
