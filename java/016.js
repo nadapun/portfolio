@@ -125,7 +125,11 @@ function handleTouchMove(e) {
 function handleTouchEnd(e) {
   mouse.down = false;
   const bee = document.getElementById('bee-follow');
-  if (bee) bee.style.display = 'block'; // ✅ Keeps it visible after lifting finger
+  if (bee && mouse.x && mouse.y) {
+    bee.style.left = (mouse.x - 15) + 'px';
+    bee.style.top = (mouse.y - 15) + 'px';
+    bee.style.display = 'block'; // ✅ show again, at the current finger position
+  }
 }
 
 function distance(pt, pt2) {
