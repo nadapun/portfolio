@@ -30,6 +30,7 @@ html, body {
   z-index: 10;
   text-align: center;
   margin-top: 20px;
+  pointer-events: none;
 }
 
 /* The nav itself */
@@ -37,6 +38,7 @@ html, body {
   display: inline-block;
   pointer-events: auto;
   cursor: url('../img/bluesplocurs.png') 16 16, auto;
+  pointer-events: auto;
 }
 
 /* Make canvas full screen, behind nav, and non-blocking */
