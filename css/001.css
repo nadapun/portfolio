@@ -1,62 +1,61 @@
 html, body {
-    width: 100%;
-    height: 100%;
-    background: #eeeeee center no-repeat;
-    margin: 0px;
-    overflow: hidden;
-    font-family: 'Josefin Slab', 'Comfortaa', sans-serif;
-    font-size: 1.1em;
-    }
-  
-  #navigation{
-    margin: 20px;
-    float: bottom;
-    cursor: url('../img/bluesplocurs.png') 16 16, auto;
-  }
+  width: 100%;
+  height: 100%;
+  background: #eeeeee center no-repeat;
+  margin: 0px;
+  overflow: hidden;
+  font-family: 'Josefin Slab', 'Comfortaa', sans-serif;
+  font-size: 1.1em;
+}
 
-  a:link {
-    color: #388E8E;
-    text-decoration: none;
-    cursor: url('../img/bluesplocurs.png') 16 16, auto;
-  }
-  
-  a:visited {
-    background-color: #007686; /* Or just color, if preferred */
-    color: #388E8E; /* Optional */
-    cursor: url('../img/bluesplocurs.png') 16 16, auto;
-  }
-  
-  a:hover {
-    color: #3a3a3a;
-    cursor: url('../img/bluesplocurs.png') 16 16, auto;
-  }
-  
-  a:active {
-    color: #555;
-    cursor: url('../img/bluesplocurs.png') 16 16, auto;
-  }
-  
-  #center{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    float: center;
-  } 
+#navigation {
+  margin: 20px;
+  float: bottom;
+  cursor: url('../img/bluesplocurs.png') 16 16, auto;
+}
 
-  #poem{
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    float: center;
-    font-family: 'Josefin Slab', 'Comfortaa', sans-serif;
-    font-size: 1.1em;
-    padding-top: 40px;
-    justify-content: left;
-    max-height: 80vh;  /* Adjust height as needed */
-    overflow-y: auto;  /* Enables vertical scrolling */
-    padding-right: 1rem; /* Optional: prevents scrollbar overlap */
-} 
+a:link {
+  color: #388E8E;
+  text-decoration: none;
+  cursor: url('../img/bluesplocurs.png') 16 16, auto;
+}
 
+a:visited {
+  background-color: #007686; /* Or just color, if preferred */
+  color: #388E8E; /* Optional */
+  cursor: url('../img/bluesplocurs.png') 16 16, auto;
+}
+
+a:hover {
+  color: #3a3a3a;
+  cursor: url('../img/bluesplocurs.png') 16 16, auto;
+}
+
+a:active {
+  color: #555;
+  cursor: url('../img/bluesplocurs.png') 16 16, auto;
+}
+
+#center {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  float: center;
+}
+
+#poem {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  float: center;
+  font-family: 'Josefin Slab', 'Comfortaa', sans-serif;
+  font-size: 1.1em;
+  padding-top: 40px;
+  justify-content: left;
+  max-height: 80vh;  /* Adjust height as needed */
+  overflow-y: auto;  /* Enables vertical scrolling */
+  padding-right: 1rem; /* Optional: prevents scrollbar overlap */
+}
 
 /* Easter Egg Link Styling */
 .easter-egg {
@@ -109,4 +108,19 @@ html, body {
   0% { opacity: 1; }
   80% { opacity: 1; }
   100% { opacity: 0; }
+}
+
+/* Mobile styling */
+@media (max-width: 600px) {
+  .easter-egg {
+      background: rgba(255, 255, 150, 0.05); /* Lighter background on mobile */
+      width: 35px; /* Slightly smaller on mobile */
+      height: 35px;
+      line-height: 35px; /* Adjust line-height to center the text */
+  }
+
+  .easter-popup {
+      font-size: 0.9rem; /* Optional: make the popup text a bit smaller on mobile */
+      padding: 8px 12px; /* Optional: reduce padding */
+  }
 }
