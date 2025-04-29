@@ -60,7 +60,7 @@ a:active {
 /* Easter Egg Link Styling */
 .easter-egg {
   color: inherit !important; /* <<< FORCE the color to be normal text */
-  background: rgba(255, 255, 150, 0.18); /* <<< Softer, lighter background */
+  background: rgba(255, 255, 150, 0.06); /* <<< Softer, lighter background */
   position: relative;
   text-decoration: none;
   cursor: url('../img/egg_icon2.png') 10 10, pointer;
