@@ -13,7 +13,7 @@ var touch = {x: 0, y: 0, down: false};
 var letters = "";
 
 document.addEventListener("DOMContentLoaded", () => {
-  letters = prompt('Copy and paste one of your poems here.');
+  letters = prompt('You found 30 eggs you weird birch... put letters, or words, or poems here!!!');
 
   canvas = document.getElementById('canvas');
   context = canvas.getContext('2d');

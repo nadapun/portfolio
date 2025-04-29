@@ -56,3 +56,57 @@ html, body {
     overflow-y: auto;  /* Enables vertical scrolling */
     padding-right: 1rem; /* Optional: prevents scrollbar overlap */
 } 
+
+
+/* Easter Egg Link Styling */
+.easter-egg {
+  color: inherit !important; /* <<< FORCE the color to be normal text */
+  background: rgba(255, 255, 150, 0.18); /* <<< Softer, lighter background */
+  position: relative;
+  text-decoration: none;
+  cursor: url('../img/egg_icon2.png') 10 10, pointer;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+/* Hover Icon */
+.easter-egg::after {
+  content: '';
+  position: absolute;
+  right: -25px;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  background-image: url('../img/egg_icon2.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show Icon on Hover */
+.easter-egg:hover::after {
+  opacity: 1;
+}
+
+/* Popup after Click */
+.easter-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #fff8c6;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  font-family: sans-serif;
+  font-size: 1rem;
+  z-index: 1000;
+  animation: fadeOut 1.5s forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}

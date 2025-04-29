@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
     const mirrorMap = {
-      'a': 'ɒ', 'b': 'd', 'c': 'ɔ', 'd': 'b', 'e': 'ǝ', 'f': 'f', 'g': 'g', 'h': 'h',
-      'i': 'i', 'j': 'j', 'k': 'ʞ', 'l': 'l', 'm': 'm', 'n': 'n', 'o': 'o', 'p': 'q',
-      'q': 'p', 'r': 'r', 's': 'ꙅ', 't': 't', 'u': 'u', 'v': 'v', 'w': 'w', 'x': 'x',
-      'y': 'y', 'z': 'z', 'A': 'A', 'B': '𐐒', 'C': 'Ↄ', 'D': '◖', 'E': 'Ǝ', 'F': 'F',
-      'G': 'G', 'H': 'H', 'I': 'I', 'J': 'J', 'K': '⋊', 'L': '⅃', 'M': 'M', 'N': 'И',
-      'O': 'O', 'P': 'P', 'Q': 'Q', 'R': 'Я', 'S': 'S', 'T': 'T', 'U': 'U', 'V': 'V',
-      'W': 'W', 'X': 'X', 'Y': 'Y', 'Z': 'Ƹ', '(': ')', ')': '(', '[': ']', ']': '[',
-      '{': '}', '}': '{', '<': '>', '>': '<', '/': '\\', '\\': '/', '-': '-', '_': '_',
-      '.': '.', ',': ',', ':': ':', ';': ';', '!': '!', '?': '?', "'": "'", '"': '"',
-      '`': '`', ' ': ' '
+        'a': 'ɒ', 'b': 'd', 'c': 'ɔ', 'd': 'b', 'e': 'ǝ', 'f': 'f', 'g': 'g', 'h': 'h',
+        'i': 'i', 'j': 'j', 'k': 'ʞ', 'l': 'l', 'm': 'm', 'n': 'n', 'o': 'o', 'p': 'q',
+        'q': 'p', 'r': 'r', 's': 'ꙅ', 't': 't', 'u': 'u', 'v': 'v', 'w': 'w', 'x': 'x',
+        'y': 'y', 'z': 'z', 'A': 'A', 'B': '𐐒', 'C': 'Ↄ', 'D': '◖', 'E': 'Ǝ', 'F': 'F',
+        'G': 'G', 'H': 'H', 'I': 'I', 'J': 'J', 'K': '⋊', 'L': '⅃', 'M': 'M', 'N': 'И',
+        'O': 'O', 'P': 'P', 'Q': 'Q', 'R': 'Я', 'S': 'S', 'T': 'T', 'U': 'U', 'V': 'V',
+        'W': 'W', 'X': 'X', 'Y': 'Y', 'Z': 'Ƹ', '(': ')', ')': '(', '[': ']', ']': '[',
+        '{': '}', '}': '{', '<': '>', '>': '<', '/': '\\', '\\': '/', '-': '-', '_': '_',
+        '.': '.', ',': ',', ':': ':', ';': ';', '!': '!', '?': '?', "'": "'", '"': '"',
+        '`': '`', ' ': ' '
     };
 
     let poemLines = [
@@ -62,13 +62,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const confusedDiv = document.getElementById("confused");
         const clearDiv = document.getElementById("clear");
 
-        // Render mirrored poem
         confusedDiv.innerHTML = poemLines.map(lineObj => {
             const mirroredWords = lineObj.text.split(' ').map(mirrorWord).reverse().join(' ');
             return `<p class="line">${wrapWords(mirroredWords, 'word')}</p>`;
         }).join('');
 
-        // Render clear text poem
         clearDiv.innerHTML = poemLines.map(lineObj => {
             return `<p class="line">${wrapWords(lineObj.text, 'clear-word')}</p>`;
         }).join('');
@@ -100,6 +98,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     renderPoems();
+
+    if (typeof addEasterEggs === "function") {
+        addEasterEggs();
+    }
+    if (typeof attachEggHandlers === "function") {
+        attachEggHandlers();
+    }
+
     document.getElementById("confused").addEventListener("click", togglePoem);
     document.getElementById("clear").addEventListener("click", togglePoem);
 });

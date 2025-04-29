@@ -21,9 +21,39 @@
   <!-- Drawing canvas behind everything -->
   <canvas id="canvas"></canvas>
 
-  <script type="text/javascript" src="../../java/016.js"></script>
+  <!-- Bee follow image -->
+  <img id="bee-follow" src="../../img/bee_icon.png" alt="Bee" style="display: none; position: absolute; width: 30px; height: 30px; pointer-events: none; z-index: 20;">
 
-  <img id="bee-follow" src="../../img/bee_icon.png" alt="Bee">
+  <!-- Flower Easter Egg -->
+  <a href="015.html" class="easter-egg" style="
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    display: block;
+    cursor: url('../img/egg_icon2.png') 10 10, pointer;
+    background-color: rgba(255, 255, 150, 0.15);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: inherit;
+    z-index: 100;
+  ">
+    🌼
+  </a>
+
+  <!-- Scripts -->
+  <script src="../../java/easterEggs-dynamic.js"></script>
+  <script src="../../java/016.js"></script>
+
+  <script>
+    if (typeof attachEggHandlers === "function") {
+      attachEggHandlers();
+    }
+  </script>
 
 </body>
 </html>

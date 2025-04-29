@@ -73,14 +73,14 @@ document.addEventListener("DOMContentLoaded", function () {
     function renderPoems() {
         const confusedDiv = document.getElementById("confused");
         const clearDiv = document.getElementById("clear");
-    
+
         confusedDiv.innerHTML = poemLines.map(lineObj => {
             const words = lineObj.text.split(' ');
             const mirroredWords = words.map(mirrorWord).reverse().join(' ');
-            const mirroredColors = (lineObj.colors || []).slice().reverse(); // reverse a *copy* of the colors
+            const mirroredColors = (lineObj.colors || []).slice().reverse();
             return `<p class="line">${wrapWords(mirroredWords, 'word', mirroredColors)}</p>`;
         }).join('');
-    
+
         clearDiv.innerHTML = poemLines.map(lineObj => {
             return `<p class="line">${wrapWords(lineObj.text, 'clear-word', lineObj.colors || [])}</p>`;
         }).join('');
@@ -112,6 +112,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     renderPoems();
+    if (typeof addEasterEggs === "function") {
+        addEasterEggs();
+    }
+    if (typeof attachEggHandlers === "function") {
+        attachEggHandlers();
+    }
+
     document.getElementById("confused").addEventListener("click", togglePoem);
     document.getElementById("clear").addEventListener("click", togglePoem);
 });
